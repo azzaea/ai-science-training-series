@@ -21,3 +21,10 @@ Other helpful links:
  
 What do you think is a particularly good use case for LLMs for science? How would you evaluate it?
 Your answer does not need to be in paragraphs. When you submit your homework form, you can link to a file in your Github repo where you wrote your answer.
+
+
+### Homework solution
+
+I think 2 areas:
+1. In writing/ producing science artifacts: LLMs are great at coming up with a layout that one can then fill-in with relevant information. The LLM produces structure, and the user tunes it as fits
+2. In basic understanding. LLMs do not have expert knowledge, and can halucinate if asked deeply about a problem. However, they are good at giving a broad level coverage of a subject. The user can then build up on it once familiar with key words to look for, or contradict it if appropriate.
