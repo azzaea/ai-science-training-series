@@ -240,7 +240,31 @@ Running inference using PyTorch model (CPU).
 Proof point /home/aeahmed/groqflow/proof_points/natural_language_processing/bert/bert_tiny.py finished!
 
 ```
+### With custom text
 
+The `bert_tiny.py` file was modified to have:
+
+```
+    custom_texts = ["My name is Sam"]
+    dummy_inputs = dict(tokenizer(custom_texts, max_length=max_seq_length, padding='max_length', truncation=True, return_tensors="pt"))
+    del dummy_inputs['token_type_ids']
+    dummy_inputs['attention_mask'] = dummy_inputs['attention_mask'].to(torch.bool)
+```
+
+And the result:
+```
+Info: No inputs received for benchmark. Using the inputs provided during model compilation.
+Running inference on GroqChip.
+Running inference using PyTorch model (CPU).
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2210/2210 [00:04<00:00, 446.91it/s]
++--------+----------+-------------------------+----------------+----------------------+-------------+
+| Source | Accuracy | end-to-end latency (ms) | end-to-end IPS | on-chip latency (ms) | on-chip IPS |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+|  cpu   |  77.47%  |           2.24          |     446.71     |          --          |      --     |
+|  groq  |  77.47%  |           0.05          |    19005.70    |         0.03         |   37576.72  |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+Proof point /home/aeahmed/groqflow/proof_points/natural_language_processing/bert/bert_tiny.py finished!
+```
 
 
 ## Cerebras
